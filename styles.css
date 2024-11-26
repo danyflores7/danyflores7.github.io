@@ -1,0 +1,1270 @@
+/* styles.css */
+
+/* Estilos Generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Barra de Navegación */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #003366;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye logo, nav y social-icons */
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Logos */
+.logo img {
+    height: 50px;
+}
+
+.logo-mobile {
+    display: none; /* Ocultar el logo móvil por defecto */
+}
+
+.logo-desktop {
+    display: block; /* Mostrar el logo de escritorio por defecto */
+}
+
+/* Menú Hamburguesa */
+.menu-toggle {
+    display: none; /* Ocultar por defecto */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span:last-child {
+    margin-bottom: 0;
+}
+
+/* Transformación del Menú Hamburguesa cuando está activo */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Navegación */
+nav {
+    flex: 1;
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #00509e;
+}
+
+/* Dropdowns para Escritorio */
+@media screen and (min-width: 769px) {
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #00509e;
+        min-width: 160px;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #0074d9;
+    }
+}
+
+/* Dropdowns para Móviles */
+@media screen and (max-width: 768px) {
+    /* Mostrar menú hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Ajustes para el menú de navegación en móviles */
+    nav {
+        position: fixed; /* Cambiar de absolute a fixed para que ocupe toda la pantalla */
+        top: 60px; /* Ajustar según la altura del header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px); /* Altura completa menos la altura del header */
+        background-color: #003366;
+        flex-direction: column;
+        align-items: center;
+        display: none; /* Oculta el menú inicialmente */
+        overflow-y: auto; /* Habilita el desplazamiento vertical */
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-100%); /* Oculta el menú fuera de la vista */
+    }
+
+    /* Mostrar el menú cuando está activo */
+    nav.active {
+        display: flex;
+        transform: translateY(0); /* Despliega el menú */
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 14px;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #00509e; /* Añadir una línea separadora para claridad */
+    }
+
+    /* Ajustes para los dropdowns en móviles */
+    .dropdown-content {
+        display: none; /* Ocultar por defecto */
+        width: 100%;
+        background-color: #004080;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block; /* Mostrar cuando está activo */
+    }
+
+    .dropdown-content a {
+        padding-left: 30px; /* Indentación para diferenciar los submenús */
+    }
+
+    /* Ocultar los iconos de redes sociales en móviles */
+    .social-icons {
+        display: none;
+    }
+
+    /* Ocultar el logo de escritorio y mostrar el móvil */
+    .logo-desktop {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: block;
+        height: 40px;
+    }
+
+    /* Evitar que los dropdowns se muestren al hacer hover en móviles */
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+}
+
+/* Iconos de Redes Sociales */
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;  /* Espacio entre el menú de navegación y los iconos */
+}
+
+.social-icons a {
+    margin-left: 55px; /* Espacio entre cada icono */
+}
+
+.social-icons a img {
+    width: 34px; /* Ajusta el tamaño según sea necesario */
+    height: 34px;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7; /* Efecto al pasar el cursor */
+}
+
+/* Banner principal */
+#banner {
+    background-image: url('images/banner.png'); /* Asegúrate de que la ruta es correcta */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    margin-top: 80px; /* Para evitar que el contenido quede debajo de la barra de navegación */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-image 0.5s ease-in-out; /* Suavizar la transición de imágenes */
+}
+
+.banner-content {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cta-button {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.cta-button:hover {
+    background-color: #00509e;
+}
+
+/* Contenido principal */
+main {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* Banner principal */
+#banner {
+    background-image: url('image/banner.png'); /* Imagen por defecto */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    margin-top: 80px; /* Para evitar que el contenido quede debajo de la barra de navegación */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-image 0.5s ease-in-out; /* Suavizar la transición de imágenes */
+}
+
+.banner-content {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cta-button {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.cta-button:hover {
+    background-color: #00509e;
+}
+
+/* Contenido principal */
+main {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* Estilos para la sección "¿Qué es?" */
+
+.que-es-container {
+    background-color: #f0f8ff; 
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+}
+
+.titulo-principal {
+    text-align: center;
+    font-size: 36px;
+    color: #ff0000; /* Cambiado a rojo para destacar */
+    text-transform: uppercase; /* Mayúsculas */
+    margin-bottom: 40px;
+}
+
+/* Primer apartado: Introducción */
+.apartado.introductorio p {
+    background-color: #0074d9;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+/* Segundo apartado: Trastornos del desarrollo */
+.apartado.trastornos-desarrollo,
+.apartado.fallas-logros {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.contenido-izquierda,
+.contenido-derecha {
+    flex: 2;
+    min-width: 250px;
+    padding: 20px;
+}
+
+.imagen-derecha,
+.iconos-izquierda {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenido-izquierda h2,
+.contenido-derecha h2 {
+    font-size: 28px;
+    color: #0074d9; /* Cambiado a rojo para destacar */
+    margin-bottom: 20px;
+}
+
+.contenido-izquierda p,
+.contenido-derecha p,
+.contenido-izquierda ul,
+.contenido-derecha ul {
+    font-size: 18px;
+    color: #000000;
+}
+
+.contenido-izquierda ul,
+.contenido-derecha ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.contenido-derecha ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+/* Imagen del doctor */
+.imagen-derecha img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #786123; /* Borde colorido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+/* Iconos */
+.icono {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icono img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    border: 2px solid #786123; /* Borde colorido */
+    border-radius: 50%; /* Bordes circulares */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.icono p {
+    font-size: 18px;
+    color: #0074d9; /* Cambiado a rojo para destacar */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Subsección PTI y Programas Individualizados */
+.subseccion-pti {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.subseccion-pti h3 {
+    font-size: 24px;
+    color: #786123; /* Cambiado a rojo para destacar */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.subseccion-pti p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.imagen-subseccion img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #786123; /* Borde colorido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+/* Galería de Imágenes */
+.galeria-imagenes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre imágenes */
+}
+
+.galeria-imagenes img {
+    width: calc(33.333% - 10px); /* Tres imágenes por fila */
+    max-width: 200px;
+    border: 2px solid #786123; /* Borde colorido */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Responsive para la sección "¿Qué es?" */
+@media screen and (max-width: 768px) {
+    .apartado.trastornos-desarrollo,
+    .apartado.fallas-logros,
+    .subseccion-pti {
+        flex-direction: column;
+    }
+
+    .titulo-principal {
+        font-size: 28px;
+    }
+
+    .galeria-imagenes img {
+        width: calc(50% - 10px); /* Dos imágenes por fila en pantallas pequeñas */
+        max-width: 150px;
+    }
+
+    .icono img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* Estilos para la sección "Deteccion temprana" */
+
+.tras-diagnostico-container {
+    padding: 60px 20px;
+    background-color: #f0f8ff;
+}
+
+.seccion-superior {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.seccion-superior .columna-izquierda {
+    flex: 1;
+    min-width: 300px;
+}
+
+.seccion-superior .columna-izquierda img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.seccion-superior .columna-derecha {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.seccion-superior .columna-derecha h1 {
+    font-size: 36px;
+    color: #0074d9;
+}
+
+.contenido-principal {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.contenido-principal .columna-izquierda,
+.contenido-principal .columna-derecha {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.contenido-principal .columna-izquierda p,
+.contenido-principal .columna-derecha p,
+.contenido-principal .columna-izquierda ul,
+.contenido-principal .columna-derecha ul {
+    font-size: 18px;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.contenido-principal .columna-izquierda ul,
+.contenido-principal .columna-derecha ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.contenido-principal .columna-derecha h2 {
+    font-size: 28px;
+    color: #0074d9;
+    margin-bottom: 20px;
+}
+
+.contenido-principal .columna-derecha ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+.separador {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .seccion-superior {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seccion-superior .columna-izquierda,
+    .seccion-superior .columna-derecha {
+        text-align: center;
+    }
+
+    .contenido-principal {
+        flex-direction: column;
+    }
+
+    .contenido-principal .columna-izquierda,
+    .contenido-principal .columna-derecha {
+        padding: 10px;
+    }
+}
+
+
+/* Estilos para la sección "Asociación Civil" */
+.asociacion-civil-container {
+    padding: 60px 20px;
+    background-color: #f0f8ff; /* Fondo suave */
+}
+
+.titulo-encabezado {
+    text-align: left;
+    font-size: 36px;
+    color: #0074d9; /* Color rojo destacado */
+    margin-bottom: 20px;
+}
+
+.parrafo-intro {
+    text-align: justify;
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 40px;
+}
+
+.seccion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-top: 1px solid #cccccc; /* Separador fino entre secciones */
+    padding-top: 20px;
+}
+
+.contenido-servicios .texto-principal,
+.contenido-desconocimiento .texto-principal {
+    flex: 2;
+    min-width: 300px;
+    text-align: left;
+}
+
+.imagen-derecha {
+    flex: 1;
+    min-width: 250px;
+    padding-left: 20px;
+}
+
+.imagen-derecha img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bordes suaves */
+    border: 2px solid #cccccc; /* Marco suave */
+}
+
+.subtitulo-desconocimiento {
+    font-size: 24px;
+    color: #0074d9; /* Tono azul para resaltar */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contenido-desconocimiento .texto-principal p {
+    margin-bottom: 15px;
+}
+
+.parrafo-cierre {
+    text-align: left;
+    font-size: 18px;
+    color: #333333;
+    margin-top: 40px;
+}
+
+.parrafo-cierre strong {
+    color: #ff0000; /* Opcional: resaltar en rojo */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .seccion {
+        flex-direction: column;
+    }
+
+    .imagen-derecha {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+}
+
+
+/* Estilos para la sección "Misión y Valores" */
+
+.mision-valores-container {
+    padding: 60px 20px;
+    background-color: #f0f8ff;
+}
+
+.titulo-principal {
+    text-align: center;
+    font-size: 32px;
+    color: #0074d9;
+    margin-bottom: 40px;
+}
+
+.seccion {
+    margin-bottom: 60px;
+}
+
+.seccion h2 {
+    font-size: 28px;
+    color: #0074d9;
+    margin-bottom: 10px;
+}
+
+.seccion hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+
+.seccion .contenido {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.seccion .contenido p {
+    flex: 2;
+    min-width: 300px;
+    font-size: 16px;
+    color: #000;
+    line-height: 1.6;
+    margin-right: 20px;
+}
+
+.seccion .contenido img {
+    flex: 1;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.objetivos .contenido {
+    display: block;
+}
+
+.objetivos .contenido ul {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+.objetivos .contenido ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .seccion .contenido {
+        flex-direction: column;
+    }
+
+    .seccion .contenido p {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .seccion .contenido img {
+        max-width: 100%;
+    }
+}
+
+/* Estilos para la página "¿Por qué un centro de atención a niños autistas?" */
+.porque-container {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff); /* Degradado suave */
+}
+
+.titulo-porque {
+    text-align: center;
+    font-size: 36px;
+    color: #0074d9; /* Color rojo destacado */
+    margin-bottom: 40px;
+}
+
+.contenido-porque {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    /* Separador fino entre secciones */
+    border-top: 1px solid #cccccc;
+    padding-top: 20px;
+}
+
+.texto-porque {
+    flex: 2;
+    min-width: 300px;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin-right: 20px;
+}
+
+.imagen-porque {
+    flex: 1;
+    min-width: 250px;
+    padding-left: 20px;
+}
+
+.imagen-porque img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bordes suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 2px solid #cccccc; /* Marco suave */
+}
+
+.texto-adicional-porque {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin-top: 20px;
+}
+
+/* Separadores Finos Entre Párrafos */
+.porque-container p {
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .contenido-porque {
+        flex-direction: column;
+    }
+
+    .imagen-porque {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Estilos para la página "¿Qué ofrecemos?" */
+.que-ofrecemos-container {
+    padding: 60px 20px;
+    background-color: #f0f8ff; /* Fondo suave */
+}
+
+.titulo-que-ofrecemos {
+    text-align: left; /* Puedes cambiar a center si lo prefieres */
+    font-size: 36px;
+    color: #0074d9; /* Color rojo destacado */
+    text-transform: uppercase; /* Mayúsculas */
+    margin-bottom: 40px;
+}
+
+.contenido-servicios {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-top: 1px solid #cccccc; /* Separador fino entre secciones */
+    padding-top: 20px;
+}
+
+.texto-servicios {
+    flex: 2;
+    min-width: 300px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin-right: 20px;
+}
+
+.texto-servicios ul.lista-servicios {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.imagen-servicios {
+    flex: 1;
+    min-width: 250px;
+    padding-left: 20px;
+}
+
+.imagen-servicios img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bordes suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 2px solid #cccccc; /* Marco suave */
+    transition: transform 0.3s, opacity 0.3s; /* Transición para hover */
+}
+
+.imagen-servicios img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.contenido-aptitudes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-top: 1px solid #cccccc; /* Separador fino entre secciones */
+    padding-top: 20px;
+}
+
+.texto-aptitudes {
+    flex: 2;
+    min-width: 300px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin-right: 20px;
+}
+
+.columna-imagenes {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre imágenes */
+    padding-left: 20px;
+}
+
+.imagen-miniatura img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes suaves */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #cccccc; /* Marco suave */
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.imagen-miniatura img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Tooltip para descripciones emergentes */
+.imagen-miniatura img[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Botón de Llamado a la Acción */
+.cta-que-ofrecemos {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.boton-cta {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.boton-cta:hover {
+    background-color: #00509e;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .contenido-servicios,
+    .contenido-aptitudes {
+        flex-direction: column;
+    }
+
+    .texto-servicios,
+    .texto-aptitudes {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .imagen-servicios,
+    .columna-imagenes {
+        padding-left: 0;
+    }
+
+    .titulo-que-ofrecemos {
+        text-align: center; /* Centrar en pantallas pequeñas */
+    }
+}
+
+/* Estilos para la sección "¿Cómo lo hacemos?" */
+.como-lo-hacemos-container {
+    padding: 60px 20px;
+    background-color: #f0f8ff; /* Fondo suave */
+}
+
+.titulo-como-lo-hacemos {
+    text-align: center;
+    font-size: 32px;
+    color: #0074d9; /* Color rojo destacado */
+    text-transform: uppercase; /* Mayúsculas */
+    margin-bottom: 40px;
+}
+
+.contenido-bloque,
+.subseccion-pti {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.texto-bloque,
+.texto-subseccion {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.imagen-bloque,
+.imagen-subseccion {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+}
+
+.imagen-bloque img,
+.imagen-subseccion img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #cccccc; /* Borde colorido */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+/* Subsección PTI y Programas Individualizados */
+.subseccion-pti h3 {
+    font-size: 24px;
+    color: #0074d9; /* Tono azul */
+    margin-bottom: 15px;
+}
+
+.subseccion-pti p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Galería de Imágenes */
+.galeria-imagenes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre imágenes */
+}
+
+.galeria-imagenes img {
+    width: calc(33.333% - 10px); /* Tres imágenes por fila */
+    max-width: 200px;
+    border: 2px solid #ff0000; /* Borde colorido */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Responsive para la sección "¿Cómo lo hacemos?" */
+@media screen and (max-width: 768px) {
+    .contenido-bloque,
+    .subseccion-pti {
+        flex-direction: column;
+    }
+
+    .galeria-imagenes img {
+        width: calc(50% - 10px); /* Dos imágenes por fila en pantallas pequeñas */
+    }
+
+    .titulo-como-lo-hacemos {
+        font-size: 28px;
+    }
+
+    .galeria-imagenes img {
+        max-width: 150px;
+    }
+}
+
+
+/* Estilos para la página de donaciones */
+.donaciones-container {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.titulo-donaciones {
+    text-align: center;
+    font-size: 32px;
+    color: #0074d9;
+    margin-bottom: 20px;
+}
+
+.descripcion-donaciones {
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.opciones-donacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.opcion {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    min-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.opcion h3 {
+    font-size: 24px;
+    color: #0074d9;
+    margin-bottom: 15px;
+}
+
+.opcion p {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.boton-donar, .boton-contacto, .boton-mas-info {
+    background-color: #0074d9;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-donar:hover, .boton-contacto:hover, .boton-mas-info:hover {
+    background-color: #0056a3;
+}
+
+.galeria-imagenes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.galeria-imagenes img {
+    width: calc(33.333% - 10px);
+    max-width: 200px;
+    border: 2px solid #0074d9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .opciones-donacion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .opcion {
+        width: 80%;
+    }
+
+    .galeria-imagenes img {
+        width: calc(50% - 10px);
+    }
+}
+
+
+/* Estilos para la página de contacto */
+.contacto-container {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.titulo-contacto {
+    text-align: center;
+    font-size: 32px;
+    color: #0074d9;
+    margin-bottom: 20px;
+}
+
+.descripcion-contacto {
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-contacto label {
+    font-size: 16px;
+    color: #0074d9;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.boton-enviar {
+    background-color: #0074d9;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boton-enviar:hover {
+    background-color: #0056a3;
+}
+
+/* WhatsApp Contacto */
+.whatsapp-contacto {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.boton-whatsapp {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.boton-whatsapp:hover {
+    background-color: #1da851;
+}
