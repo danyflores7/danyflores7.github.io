@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valora AC - Apoyando a Niños con Autismo en Puebla</title>
+    <meta name="description" content="Valora AC es un centro dedicado a mejorar la calidad de vida de niños con autismo en Puebla. Ofrecemos apoyo integral, detección temprana y programas educativos.">
+    <meta name="keywords" content="autismo, Valora AC, apoyo a niños, autismo Puebla, centro para autismo, programas educativos autismo, detección temprana autismo">
+    <meta name="author" content="Valora AC">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Valora AC - Apoyando a Niños con Autismo en Puebla">
+    <meta property="og:description" content="Mejoramos la calidad de vida de niños con autismo a través de apoyo integral y programas educativos especializados.">
+    <meta property="og:image" content="https://valoraac.org/images/logo_desktop.png">
+    <meta property="og:url" content="https://valoraac.org/">
+    <meta property="og:type" content="website">
+    <meta name="google-site-verification" content="ypcnUjUna1V5oFHj1H9DLg8_9rEoln61CXsoGaUSAMw" />
+    <link rel="canonical" href="https://valoraac.org/">
+    <!-- Enlazar al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+    <!-- Barra de navegación superior fija -->
+    <header class="header">
+
+        <!-- Icono del menú hamburguesa para dispositivos móviles -->
+        <button class="header__menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="header__logo">
+            <img src="images/logo_desktop.png" alt="Logo de Valora, A.C." class="header__logo-desktop">
+            <img src="images/logo_mobile.png" alt="Logo de Valora, A.C." class="header__logo-mobile">
+        </div>        
+        
+        <nav class="header__nav" id="nav-menu" aria-hidden="true" role="navigation">
+            <ul class="header__nav-list">
+                <li class="header__nav-item header__nav-item--dropdown">
+                    <a href="#" class="header__nav-link" aria-haspopup="true" aria-expanded="false">¿Qué es el autismo?</a>
+                    <div class="header__dropdown-content" role="menu">
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('que_es.html', '¿Qué es el autismo?', 'images/banner_que_es.png')" role="menuitem">¿Qué es?</a>
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('deteccion_temprana.html', 'Detección temprana', 'images/banner_deteccion_temprana.png')" role="menuitem">Detección temprana</a>
+                    </div>
+                </li>
+                <li class="header__nav-item header__nav-item--dropdown">
+                    <a href="#" class="header__nav-link" aria-haspopup="true" aria-expanded="false">Quiénes somos</a>
+                    <div class="header__dropdown-content" role="menu">
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('asociacion_civil.html', 'Asociación civil', 'images/banner_asociacion_civil.png')" role="menuitem">Asociación civil</a>
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('mision_vision_objetivos.html', 'Misión y Valores', 'images/banner_mision_valores.jpeg')" role="menuitem">Misión y Valores</a>
+                    </div>
+                </li>
+                <li class="header__nav-item header__nav-item--dropdown">
+                    <a href="#" class="header__nav-link" aria-haspopup="true" aria-expanded="false">¿Qué hacemos?</a>
+                    <div class="header__dropdown-content" role="menu">
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('porque.html', '¿Por qué?', 'images/banner_porque.png')" role="menuitem">¿Por qué?</a>
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('que_ofrecemos.html', '¿Qué ofrecemos?', 'images/banner_que_ofrecemos.png')" role="menuitem">¿Qué ofrecemos?</a>
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('como_lo_hacemos.html', '¿Cómo lo hacemos?', 'images/banner_como_lo_hacemos.png')" role="menuitem">¿Cómo lo hacemos?</a>
+                    </div>
+                </li>
+                <li class="header__nav-item header__nav-item--dropdown">
+                    <a href="#" class="header__nav-link" aria-haspopup="true" aria-expanded="false">Colabora</a>
+                    <div class="header__dropdown-content" role="menu">
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('donaciones.html', 'Donaciones', 'images/banner_donaciones.png')" role="menuitem">Donaciones</a>
+                        <a href="#" class="header__dropdown-link" onclick="loadContent('convenios.html', 'Convenios', 'images/banner_convenios.png')" role="menuitem">Convenios</a>
+                    </div>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#" class="header__nav-link" onclick="loadContent('contacto.html', 'Contacto', 'images/banner_contacto.png')">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Contenedor de Iconos de Redes Sociales -->
+        <div class="header__social-icons">
+            <a href="https://www.facebook.com/valora.autismo/?locale=es_LA" target="_blank" aria-label="Facebook" class="header__social-link">
+                <img src="images/facebook.png" alt="Facebook" class="header__social-icon">
+            </a>
+            <a href="https://www.instagram.com/valora.ac/" target="_blank" aria-label="Instagram" class="header__social-link">
+                <img src="images/instagram.png" alt="Instagram" class="header__social-icon">
+            </a>
+            <a href="https://x.com/i/flow/login?redirect_after_login=%2Fvalora_ac" target="_blank" aria-label="X" class="header__social-link">
+                <img src="images/x.png" alt="X" class="header__social-icon">
+            </a>
+        </div>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="banner">
+        <div class="banner__content">
+            <h1 class="banner__title">Valora AC - Apoyo integral para PERSONAS con TEA</h1>
+            <p>Ayudamos a personas con TEA a alcanzar su máximo potencial.</p>
+            <a href="#" class="button banner__cta" onclick="loadContent('contacto.html', 'Contacto', 'images/banner_contacto.png')">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <!-- Aquí se cargará el contenido dinámicamente -->
+    </main>
+
+    <!-- Script para cargar el contenido automáticamente -->
+    <script>
+        window.onload = function() {
+            loadContent('asociacion_civil.html', 'Asociación civil', 'images/banner_asociacion_civil.png');
+        };
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Valora, A.C. Todos los derechos reservados.</p>
+        <p class="footer__links">
+            <a href="https://www.facebook.com/valora.autismo" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com/valora.ac/" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+    <!-- Enlazar al archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
