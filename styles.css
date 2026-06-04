@@ -1315,6 +1315,80 @@ img {
     background-color: #1da851;
 }
 
+/* Estilos para el formulario de contacto */
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f5;
+}
+
+.formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-contacto label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.formulario-contacto input[type="text"],
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.formulario-contacto input[type="text"]:focus,
+.formulario-contacto input[type="email"]:focus,
+.formulario-contacto textarea:focus {
+    outline: none;
+    border-color: #0074d9;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.15);
+}
+
+.formulario-contacto textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.boton-enviar {
+    background-color: #0074d9;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-top: 10px;
+}
+
+.boton-enviar:hover {
+    background-color: #0056a3;
+    box-shadow: 0 4px 12px rgba(0, 116, 217, 0.2);
+}
+
+.boton-enviar:active {
+    transform: scale(0.98);
+}
+
 /* Estilo para la dirección de contacto y enlace de Google Maps */
 .direccion-contacto {
     text-align: center;
